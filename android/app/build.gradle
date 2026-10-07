@@ -1,6 +1,9 @@
 apply plugin: 'com.android.application'
 
 def releaseKeystorePath = System.getenv("ANDROID_KEYSTORE_PATH")
+def buildNumber = System.getenv("GITHUB_RUN_NUMBER")
+def appVersionCode = (buildNumber ?: "1").toInteger()
+def appVersionName = buildNumber ? "1.0.${buildNumber}" : "1.0"
 
 if (releaseKeystorePath) {
     android {
@@ -23,8 +26,8 @@ android {
         applicationId "com.richogata.readflow"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
-        versionCode (project.findProperty("versionCode") ?: "1").toInteger()
-        versionName project.findProperty("versionName") ?: "1.0"
+        versionCode appVersionCode
+        versionName appVersionName
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         aaptOptions {
              // Files and dirs to omit from the packaged assets dir, modified to accommodate modern web apps.
