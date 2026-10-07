@@ -28,6 +28,10 @@ The included Vite configuration uses relative asset paths so the site works unde
 
 The repository includes `vercel.json` to build the Vite app with `npm run build`, publish `dist/`, and serve the client-side app correctly. Import the GitHub repository in the Vercel dashboard and keep the detected Vite settings. No environment variables or backend services are required.
 
+## Install ReadFlow on Android
+
+Every push to `main` also builds a signed Android APK and publishes it as the latest GitHub release. Download [ReadFlow.apk](https://github.com/Richogata/readflow-vite/releases/latest/download/ReadFlow.apk) on your Android phone, open the downloaded file, and allow your browser or file manager to install apps when Android asks. This APK is signed for direct installation, not distribution through Google Play. Android may display a Play Protect warning for apps installed outside the Play Store.
+
 ## Local data and backup
 
 Data stays in the browser profile and site origin where it was created. Clearing browser storage or changing browser/device/origin can remove or strand that data. **Exporter mes données** downloads JSON containing book metadata, notes, summaries, and reading sessions; for privacy, book files themselves are not included and must be kept separately. A JSON import/restore is not currently provided.
