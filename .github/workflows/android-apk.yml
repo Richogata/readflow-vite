@@ -85,4 +85,5 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Add download link to summary
-        run: echo "Download ReadFlow for Android: ${{ github.server_url }}/${{ github.repository }}/releases/latest/download/ReadFlow.apk" >> "$GITHUB_STEP_SUMMARY"
+        run: |
+          echo "Download ReadFlow for Android: ${{ github.server_url }}/${{ github.repository }}/releases/latest/download/ReadFlow.apk" >> "$GITHUB_STEP_SUMMARY"
